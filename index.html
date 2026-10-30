@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QRCraft – Free QR Code Generator | URL, WiFi, vCard, Text</title>
+<meta name="description" content="Free QR code generator online. Create QR codes for URLs, WiFi, contact cards, text, email, phone and SMS. Download as PNG. No signup, no watermark, no limit.">
+<meta name="keywords" content="free qr code generator, qr code maker online, qr code for wifi, qr code url, generate qr code free, qr code generator no watermark, custom qr code">
+<link rel="canonical" href="https://qrcraft.in/">
+
+<meta property="og:title" content="QRCraft – Free QR Code Generator">
+<meta property="og:description" content="Generate QR codes for URL, WiFi, contact, text, email and more. Free, no watermark, instant download.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrcraft.in/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="QRCraft – Free QR Code Generator">
+<meta name="twitter:description" content="Generate QR codes for URL, WiFi, contact, text, email and more. Free, no watermark, instant download.">
+
+<link rel="stylesheet" href="css/main.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "QRCraft",
+  "url": "https://qrcraft.in/",
+  "description": "Free QR code generator for URL, WiFi, vCard, text, email, phone, SMS. No signup, no watermark.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+  "featureList": ["URL QR codes", "WiFi QR codes", "Contact/vCard QR codes", "Text QR codes", "Email QR codes", "Phone QR codes", "Custom colors", "PNG download", "No watermark", "No signup"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is QRCraft free to use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. QRCraft is completely free with no signup, no watermark, and no download limit." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I create a QR code for a website URL?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Select the URL tab, paste your website address, choose a color and size, then click Generate QR Code. Download as PNG instantly." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I create a QR code for WiFi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Select the WiFi tab, enter your network name (SSID), password, and security type (WPA/WEP/Open). The QR code lets anyone scan and connect without typing the password." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I customize the color of my QR code?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can change both the foreground (dot) color and background color. Make sure there is enough contrast between them so the QR code scans correctly." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <h1>QRCraft</h1>
+  <p>Free QR Code Generator — URL, WiFi, Contact, Text &amp; more</p>
+</header>
+
+<div class="container">
+
+  <!-- TYPE TABS -->
+  <div class="type-tabs">
+    <button class="type-tab active" onclick="switchType('url')">🔗 URL</button>
+    <button class="type-tab" onclick="switchType('text')">📝 Text</button>
+    <button class="type-tab" onclick="switchType('wifi')">📶 WiFi</button>
+    <button class="type-tab" onclick="switchType('email')">✉️ Email</button>
+    <button class="type-tab" onclick="switchType('phone')">📞 Phone</button>
+    <button class="type-tab" onclick="switchType('sms')">💬 SMS</button>
+    <button class="type-tab" onclick="switchType('vcard')">👤 Contact</button>
+  </div>
+
+  <!-- FORMS -->
+  <div class="card">
+    <!-- URL -->
+    <div id="form-url">
+      <div class="field">
+        <label>Website URL</label>
+        <input type="url" id="url-input" placeholder="https://example.com" value="https://">
+      </div>
+    </div>
+
+    <!-- TEXT -->
+    <div id="form-text" style="display:none">
+      <div class="field">
+        <label>Text</label>
+        <textarea id="text-input" placeholder="Enter any text here..."></textarea>
+      </div>
+    </div>
+
+    <!-- WIFI -->
+    <div id="form-wifi" style="display:none">
+      <div class="field">
+        <label>Network Name (SSID)</label>
+        <input type="text" id="wifi-ssid" placeholder="MyHomeWiFi">
+      </div>
+      <div class="half">
+        <div class="field">
+          <label>Password</label>
+          <input type="text" id="wifi-pass" placeholder="password123">
+        </div>
+        <div class="field">
+          <label>Security</label>
+          <select id="wifi-sec">
+            <option value="WPA">WPA/WPA2</option>
+            <option value="WEP">WEP</option>
+            <option value="nopass">Open (no password)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMAIL -->
+    <div id="form-email" style="display:none">
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" id="email-to" placeholder="someone@example.com">
+      </div>
+      <div class="field">
+        <label>Subject (optional)</label>
+        <input type="text" id="email-subject" placeholder="Hello!">
+      </div>
+      <div class="field">
+        <label>Message (optional)</label>
+        <textarea id="email-body" placeholder="Your message..."></textarea>
+      </div>
+    </div>
+
+    <!-- PHONE -->
+    <div id="form-phone" style="display:none">
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="tel" id="phone-input" placeholder="+919876543210">
+      </div>
+    </div>
+
+    <!-- SMS -->
+    <div id="form-sms" style="display:none">
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="tel" id="sms-phone" placeholder="+919876543210">
+      </div>
+      <div class="field">
+        <label>Message (optional)</label>
+        <textarea id="sms-msg" placeholder="Your SMS message..."></textarea>
+      </div>
+    </div>
+
+    <!-- VCARD -->
+    <div id="form-vcard" style="display:none">
+      <div class="half">
+        <div class="field"><label>First Name</label><input type="text" id="vc-first" placeholder="Ravi"></div>
+        <div class="field"><label>Last Name</label><input type="text" id="vc-last" placeholder="Sharma"></div>
+      </div>
+      <div class="half">
+        <div class="field"><label>Phone</label><input type="tel" id="vc-phone" placeholder="+919876543210"></div>
+        <div class="field"><label>Email</label><input type="email" id="vc-email" placeholder="ravi@example.com"></div>
+      </div>
+      <div class="field"><label>Company (optional)</label><input type="text" id="vc-org" placeholder="Acme Corp"></div>
+      <div class="field"><label>Website (optional)</label><input type="url" id="vc-url" placeholder="https://example.com"></div>
+    </div>
+
+    <!-- CUSTOMIZE -->
+    <div class="customize-row">
+      <div class="color-field">
+        <label>QR Color</label>
+        <input type="color" id="qr-color" value="#000000">
+      </div>
+      <div class="color-field">
+        <label>Background</label>
+        <input type="color" id="bg-color" value="#ffffff">
+      </div>
+      <div class="size-field">
+        <label>Size</label>
+        <select id="qr-size">
+          <option value="200">Small (200px)</option>
+          <option value="300" selected>Medium (300px)</option>
+          <option value="400">Large (400px)</option>
+          <option value="600">Extra Large (600px)</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn-generate" onclick="generate()">Generate QR Code</button>
+  </div>
+
+  <!-- OUTPUT -->
+  <div class="qr-output" id="qr-output">
+    <canvas id="qr-canvas"></canvas>
+    <div class="qr-actions">
+      <button class="btn-dl btn-dl-png" onclick="downloadPNG()">⬇ Download PNG</button>
+      <button class="btn-dl btn-dl-copy" onclick="copyImage()">📋 Copy Image</button>
+    </div>
+  </div>
+
+  <!-- SEO CONTENT -->
+  <div class="content-section">
+    <h2>Free QR Code Generator — No Watermark, No Signup</h2>
+    <p>QRCraft lets you create QR codes for any purpose in seconds. All types are free with no watermark and no download limit. Your data never leaves your device — everything is generated directly in your browser.</p>
+
+    <h3>How to create a QR code</h3>
+    <ol>
+      <li>Choose a type: URL, Text, WiFi, Email, Phone, SMS, or Contact.</li>
+      <li>Fill in the details for your QR code.</li>
+      <li>Pick a color and size.</li>
+      <li>Click <strong>Generate QR Code</strong>.</li>
+      <li>Download as PNG or copy to clipboard.</li>
+    </ol>
+
+    <h3>QR Code Types</h3>
+    <ul>
+      <li><strong>URL</strong> — link to any website. Scan to open the page instantly.</li>
+      <li><strong>WiFi</strong> — share your WiFi password. Scan to connect without typing.</li>
+      <li><strong>Contact (vCard)</strong> — scan to save a contact to your phone.</li>
+      <li><strong>Email</strong> — scan to open a pre-filled email compose window.</li>
+      <li><strong>Phone</strong> — scan to dial a number.</li>
+      <li><strong>SMS</strong> — scan to open a pre-filled SMS message.</li>
+      <li><strong>Text</strong> — encode any plain text message.</li>
+    </ul>
+
+    <h3>Frequently Asked Questions</h3>
+    <details>
+      <summary>Is QRCraft completely free?</summary>
+      <p>Yes. There are no plans, no subscriptions, and no watermarks. All QR types are free with unlimited downloads.</p>
+    </details>
+    <details>
+      <summary>Do QR codes expire?</summary>
+      <p>No. QR codes generated by QRCraft are static — they never expire. The data is stored inside the QR code image itself, so no server is involved and nothing can go offline.</p>
+    </details>
+    <details>
+      <summary>Can I change the color of my QR code?</summary>
+      <p>Yes. Pick any foreground and background color. Just make sure there is enough contrast between them — dark QR on light background scans best.</p>
+    </details>
+    <details>
+      <summary>What size should I use?</summary>
+      <p>For digital sharing (WhatsApp, email, websites) 300px is fine. For print (flyers, menus, business cards) use 400–600px for best scan quality.</p>
+    </details>
+    <details>
+      <summary>Is my data safe?</summary>
+      <p>Yes. All QR codes are generated entirely in your browser. Your data is never sent to any server.</p>
+    </details>
+
+    <div style="margin-top:20px; text-align:center; font-size:12px; color:#0f766e;">
+      More free tools:
+      <a href="https://nxtcraft.github.io/invoicekit/">InvoiceKit</a> ·
+      <a href="https://nxtcraft.github.io/pdfcraft/">PDFCraft</a> ·
+      <a href="https://nxtcraft.github.io/resumekit/">ResumeKit</a> ·
+      <a href="https://nxtcraft.github.io/shopbook/">ShopBook</a> ·
+      <a href="https://nxtcraft.github.io/tradecalc/">TradeCalc</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 QRCraft · <a href="https://nxtcraft.github.io/devtoolbox/">DevToolbox</a> · <a href="https://nxtcraft.github.io/pdfcraft/">PDFCraft</a>
+</footer>
+
+<!-- QRCode.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
